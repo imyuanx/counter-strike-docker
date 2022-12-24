@@ -8,7 +8,7 @@ ARG amxmod_version
 
 RUN useradd -ms /bin/bash cstrike
 
-RUN yum update && yum install -y lib32gcc1 curl unzip && rm -rf /var/lib/apt/lists/* && chown cstrike:cstrike /opt
+RUN yum install -y lib32gcc1 curl unzip && rm -rf /var/lib/apt/lists/* && chown cstrike:cstrike /opt
 
 USER cstrike
 
