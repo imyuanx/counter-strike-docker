@@ -8,7 +8,7 @@ ARG amxmod_version
 
 RUN useradd -ms /bin/bash cstrike
 
-RUN apt-get update && apt-get install -y lib32gcc1 curl unzip && rm -rf /var/lib/apt/lists/* && chown cstrike:cstrike /opt
+RUN yum update && yum install -y lib32gcc1 curl unzip && rm -rf /var/lib/apt/lists/* && chown cstrike:cstrike /opt
 
 USER cstrike
 
@@ -47,7 +47,7 @@ RUN curl -sqL 'https://forums.alliedmods.net/attachment.php?attachmentid=116910&
     unzip -jfo '/opt/patch.zip' -d /opt/hlds/cstrike/addons/amxmodx/modules && rm -f '/opt/patch.zip'
 
 USER root
-RUN apt-get remove -y curl unzip && apt-get autoremove -y
+RUN yum remove -y curl unzip && yum autoremove -y
 USER cstrike
 
 WORKDIR /opt/hlds
